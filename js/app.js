@@ -50,10 +50,8 @@ const addCityInput = (inpCity) => {
         data.list[0].weather[0]['description']; //состояние погоды
 
       /*картинки */
-      if (data.list[0].weather[0].description === 'облачно с прояснениями') {
-        document.querySelector(
-          '.main__img'
-        ).src = `../img/cloudy.svg`;
+           if (data.list[0].weather[0].icon === '04n') {
+        document.querySelector('.main__img').src= `./img/cloudy.svg`;
       }
 
       document.querySelector('.main__temp').innerHTML =
