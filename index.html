@@ -16,12 +16,12 @@
   <header>
     <div class="container">
       <nav class="nav">
-        <svg xmlns="http://www.w3.org/2000/svg" id = 'add-city'class="icon" viewBox="0 0 448 512" width="32" height="32">
+        <svg xmlns="http://www.w3.org/2000/svg" id='add-city' class="icon" viewBox="0 0 448 512" width="32" height="32">
           <path fill="#FFf"
             d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
         </svg>
         <div class="inp-block">
-          <input type="text"  placeholder="Ведите город" class="inp-block__input">
+          <input type="text" value="уфа" placeholder="Ведите город" class="inp-block__input">
           <button class="inp-block__button" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 512 512">
               <path stroke="#000" fill="none" stroke-width="6"
@@ -29,7 +29,7 @@
             </svg>
           </button>
         </div>
-        <h1  class="nav-city">Добавьте город</h1>
+        <h1 class="nav-city">Добавьте город</h1>
         <svg xmlns="http://www.w3.org/2000/svg" class="icon" id="reset" width="32" height="32" viewBox="0 0 512 512">
           <path fill="#fff"
             d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"
@@ -41,41 +41,72 @@
   <main class="main">
     <div class="container">
       <div class="main__wrap">
-        <img class="main__img" src="./img/sun.svg" alt="Icon">
-        <p class="main__day">Sunday
-
+        <img class="main__img" src="./img/01d.svg" alt="Icon">
+        <!-- <p class="main__day">Sunday
           Sunday
-          Nov 14</p>
+          Nov 14</p> -->
         <h2 class="main__temp">--</h2>
         <span class="main__temp-desc">Heavy rain</span>
       </div>
       <div class="main__more">
         <div class="main__more-info">
-          <img class="main__more-info-img" src="./img/nav.svg" alt="Icon">
+          <svg class="main__more-info-img" width="56" height="48" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="blur" x="-.24684" y="-.27097" width="1.4937" height="1.6939">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                <feOffset dx="0" dy="4" result="offsetblur" />
+                <feComponentTransfer>
+                  <feFuncA slope="0.05" type="linear" />
+                </feComponentTransfer>
+                <feMerge>
+                  <feMergeNode />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <g transform="translate(16 -2)" filter="url(#blur)">
+              <g class="am-weather-wind" transform="translate(-16,10)" fill="none" stroke="#cd9e73"
+                stroke-linecap="round" stroke-width="2">
+                <path stroke-dasharray="150 10" d="M25.5 5A4 4 0 1 1 29 11H10">
+                  <animate attributeName="stroke-dashoffset" dur="3s" repeatCount="indefinite" values="0; 160"
+                    begin="0s" />
+                </path>
+                <path stroke-dasharray="144 16" d="M39.5 11A4 4 0 1 1 43 17H6">
+                  <animate attributeName="stroke-dashoffset" dur="3s" repeatCount="indefinite" values="0; 160"
+                    begin="0.5s" />
+                </path>
+                <path stroke-dasharray="150 10" d="M28.5 29A4 4 0 1 0 32 23H15">
+                  <animate attributeName="stroke-dashoffset" dur="3s" repeatCount="indefinite" values="0; 160"
+                    begin="0.25s" />
+                </path>
+              </g>
+            </g>
+          </svg>
+          <!-- <img class="main__more-info-img" src="./img/nav.svg" alt="Icon"> -->
           <div>
-            <p>3.7 km/h</p>
-            <p>Wind</p>
+            <p>Ветер</p>
+            <p id="wind-speed">--</p>
           </div>
         </div>
         <div class="main__more-info">
-          <img class="main__more-info-img" src="./img/nav.svg" alt="Icon">
+          <img class="main__more-info-img" src="./img/feeling.svg" alt="Icon">
           <div>
-            <p>3.7 km/h</p>
-            <p>Wind</p>
+            <p>Ощущается</p>
+            <p id="feels_like">-- м/c</p>
           </div>
         </div>
         <div class="main__more-info">
-          <img class="main__more-info-img" src="./img/nav.svg" alt="Icon">
+          <img class="main__more-info-img" src="./img/temp.svg" alt="Icon">
           <div>
-            <p>3.7 km/h</p>
-            <p>Wind</p>
+            <p id="tempMin">Мин: --</p>
+            <p id="tempMax">Макс: --</p>
           </div>
         </div>
         <div class="main__more-info">
-          <img class="main__more-info-img" src="./img/nav.svg" alt="Icon">
+          <img class="main__more-info-img" src="./img/humidity.svg" alt="Icon">
           <div>
-            <p>3.7 km/h</p>
-            <p>Wind</p>
+            <p>Влажность</p>
+            <p id="humidity">--</p>
           </div>
         </div>
       </div>

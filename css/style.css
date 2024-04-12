@@ -137,20 +137,24 @@ body {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  gap: 25px;
+  margin-inline: auto;
+  padding-left: 25px;
 }
 .main__more-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
   gap: 15px;
+  width: 56px;
 }
 .main__more-info-icon-img {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  height: 100%;
-  display: inline-block;
+  width: 56px;
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
 }
 .main__more-info span {
   display: block;

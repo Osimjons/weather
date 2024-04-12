@@ -15,13 +15,13 @@ const getValue = () => {
   let inputElement = document.querySelector('.inp-block__input');
   let inpCity = inputElement.value.trim();
   // btn.addEventListener('click', () => {
-    if (!inpCity) return alert('Что-то пошло не так, попробуйте снова');
-    addCityInput(inpCity);
-    setTimeout(() => {
-      document.querySelector('.nav').classList.remove('hiden');
-    }, 300);
-    document.querySelector('.inp-block').classList.remove('active');
-    inputElement.value = '';
+  if (!inpCity) return alert('Что-то пошло не так, попробуйте снова');
+  addCityInput(inpCity);
+  setTimeout(() => {
+    document.querySelector('.nav').classList.remove('hiden');
+  }, 300);
+  document.querySelector('.inp-block').classList.remove('active');
+  inputElement.value = '';
   // });
 };
 btn.addEventListener('click', getValue);
@@ -50,19 +50,83 @@ const addCityInput = (inpCity) => {
         data.list[0].weather[0]['description']; //состояние погоды
 
       /*картинки */
-      if (data.list[0].weather[0].description === 'облачно с прояснениями') {
-        document.querySelector(
-          '.main__img'
-        ).src = `../img/cloudy.svg`;
+      if (data.list[0].weather[0].icon === '01d') {
+        document.querySelector('.main__img').src = `./img/01d.svg`;
       }
-
+      if (data.list[0].weather[0].icon === '01n') {
+        document.querySelector('.main__img').src = `./img/01n.svg`;
+      }
+      if (data.list[0].weather[0].icon === '02d') {
+        document.querySelector('.main__img').src = `./img/02d.svg`;
+      }
+      if (data.list[0].weather[0].icon === '02n') {
+        document.querySelector('.main__img').src = `./img/02n.svg`;
+      }
+      if (
+        data.list[0].weather[0].icon === '03d' ||
+        data.list[0].weather[0].icon === '03n'
+      ) {
+        document.querySelector('.main__img').src = `./img/03.svg`;
+      }
+      if (
+        data.list[0].weather[0].icon === '04d' ||
+        data.list[0].weather[0].icon === '04n'
+      ) {
+        document.querySelector('.main__img').src = `./img/04d.svg`;
+      }
+      if (
+        data.list[0].weather[0].icon === '09d' ||
+        data.list[0].weather[0].icon === '09n'
+      ) {
+        document.querySelector('.main__img').src = `./img/09.svg`;
+      }
+      if (data.list[0].weather[0].icon === '10d') {
+        document.querySelector('.main__img').src = `./img/10d.svg`;
+      }
+      if (data.list[0].weather[0].icon === '10n') {
+        document.querySelector('.main__img').src = `./img/10n.svg`;
+      }
+      if (data.list[0].weather[0].icon === '11d') {
+        document.querySelector('.main__img').src = `./img/11d.svg`;
+      }
+      if (data.list[0].weather[0].icon === '11n') {
+        document.querySelector('.main__img').src = `./img/11n.svg`;
+      }
+      if (data.list[0].weather[0].icon === '13d') {
+        document.querySelector('.main__img').src = `./img/13d.svg`;
+      }
+      if (data.list[0].weather[0].icon === '13n') {
+        document.querySelector('.main__img').src = `./img/13n.svg`;
+      }
+      if (data.list[0].weather[0].icon === '50d') {
+        document.querySelector('.main__img').src = `./img/50d.svg`;
+      }
+      if (data.list[0].weather[0].icon === '50n') {
+        document.querySelector('.main__img').src = `./img/50n.svg`;
+      }
+      /*Температура*/
       document.querySelector('.main__temp').innerHTML =
         Math.floor(data.list[0].main.temp) + '&deg';
 
-      // document.querySelector('#humidity').textContent =
-      //   data.list[0].main.humidity + '%';
-      // document.querySelector('#wind-speed').textContent =
-      //   Math.round(data.list[0].wind.speed) + ' м.с';
+      /*Скорость ветра*/
+      document.querySelector('#wind-speed').textContent =
+        data.list[0].wind.speed + ' м/с';
+
+      /*Влажность */
+      document.querySelector('#humidity').textContent =
+        data.list[0].main.humidity + '%';
+
+      /**Ощущение */
+      document.querySelector('#feels_like').textContent =
+        data.list[0].main.feels_like;
+
+      /**Минимальная Температура */
+      document.querySelector('#tempMin').innerHTML = 'Мин: ' +
+        Math.floor(data.list[0].main.temp_min) + '&deg';
+        
+      /**Максимальная Температура */
+      document.querySelector('#tempMax').innerHTML = 'Мин: ' +
+        Math.floor(data.list[0].main.temp_max) + '&deg';
     });
 };
 
