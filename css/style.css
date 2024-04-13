@@ -139,7 +139,6 @@ body {
       flex-wrap: wrap;
   gap: 25px;
   margin-inline: auto;
-  padding-left: 25px;
 }
 .main__more-info {
   display: -webkit-box;

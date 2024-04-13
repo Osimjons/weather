@@ -120,15 +120,17 @@ const addCityInput = (inpCity) => {
       document.querySelector('#feels_like').textContent =
         data.list[0].main.feels_like;
 
-      /**Минимальная Температура */
-      document.querySelector('#tempMin').innerHTML = 'Мин: ' +
-        Math.floor(data.list[0].main.temp_min) + '&deg';
+      /*Восход */
+      document.querySelector('#tempMin').innerHTML =
+        'Восход: ' + Math.floor(data.sity.sunrise) + '&deg';
         
-      /**Максимальная Температура */
-      document.querySelector('#tempMax').innerHTML = 'Мин: ' +
-        Math.floor(data.list[0].main.temp_max) + '&deg';
+      /*Закат */
+      document.querySelector('#tempMax').innerHTML =
+        'Закат: ' + Math.floor(data.list[0].main.temp_max) + '&deg';
     });
 };
+
+
 
 // fetch(
 //   `http://api.openweathermap.org/data/2.5/forecast?q=${inpCity}&appid=${api}&lang=${lang}&units=metric`
