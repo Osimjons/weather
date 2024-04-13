@@ -1,28 +1,20 @@
 'use strict';
 
-// const API = '61dc1a61284946aa730345e4647fb62d';
-
-// fetch(`http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=${API}`);
-
-//https://openweathermap.org/img/wn/02d@2x.png   ссылка на иконки работает
-
 const api = '61dc1a61284946aa730345e4647fb62d';
 const lang = 'ru';
 const btn = document.querySelector('.inp-block__button');
-// let inpCity = document.querySelector('.inp-block__input');
 
 const getValue = () => {
   let inputElement = document.querySelector('.inp-block__input');
   let inpCity = inputElement.value.trim();
-  // btn.addEventListener('click', () => {
   if (!inpCity) return alert('Что-то пошло не так, попробуйте снова');
+  window.localStorage('')
   addCityInput(inpCity);
   setTimeout(() => {
     document.querySelector('.nav').classList.remove('hiden');
   }, 300);
   document.querySelector('.inp-block').classList.remove('active');
   inputElement.value = '';
-  // });
 };
 btn.addEventListener('click', getValue);
 const addCityActions = () => {
@@ -32,7 +24,6 @@ const addCityActions = () => {
     setTimeout(() => {
       document.querySelector('.inp-block').classList.toggle('active');
     }, 300);
-    // getValue();
   });
 };
 addCityActions();
