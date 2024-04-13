@@ -137,16 +137,17 @@ body {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 25px;
   margin-inline: auto;
 }
 .main__more-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-preferred-size: 40%;
-      flex-basis: 40%;
-  gap: 15px;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  padding: 5px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 56px;
 }
 .main__more-info-icon-img {
