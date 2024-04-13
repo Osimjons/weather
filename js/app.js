@@ -120,17 +120,39 @@ const addCityInput = (inpCity) => {
       document.querySelector('#feels_like').textContent =
         data.list[0].main.feels_like;
 
+      /*Расчет Восхода и Заката */
+      const sunrise = data.city.sunrise;
+      const sunset = data.city.sunset;
+
+      // Преобразование timestamp в объект Date
+      const sunriseTime = new Date(sunrise * 1000);
+      const sunsetTime = new Date(sunset * 1000);
+
+      // Функция для форматирования времени с учетом локализации
+      const formatTime = (time) => {
+        return time.toLocaleTimeString('ru-Ru', {
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+      };
+
+      // Вывод времени восхода солнца
+      const formattedSunrise = formatTime(sunriseTime);
+
+      // Вывод времени заката солнца
+      const formattedSunset = formatTime(sunsetTime);
+      console.log('formattedSunset: ', formattedSunset);
+      /*Конец Расчет Восхода и Заката */
+
       /*Восход */
-      document.querySelector('#tempMin').innerHTML =
-        'Восход: ' + Math.floor(data.sity.sunrise) + '&deg';
-        
+      document.querySelector('#sunrise').innerHTML =
+        'Восход: ' + formattedSunrise;
+
       /*Закат */
-      document.querySelector('#tempMax').innerHTML =
-        'Закат: ' + Math.floor(data.list[0].main.temp_max) + '&deg';
+      document.querySelector('#sunset').innerHTML =
+        'Закат :' + ' ' + formattedSunset;
     });
 };
-
-
 
 // fetch(
 //   `http://api.openweathermap.org/data/2.5/forecast?q=${inpCity}&appid=${api}&lang=${lang}&units=metric`
