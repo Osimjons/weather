@@ -8,7 +8,7 @@ const getValue = () => {
   let inputElement = document.querySelector('.inp-block__input');
   let inpCity = inputElement.value.trim();
   if (!inpCity) return alert('Что-то пошло не так, попробуйте снова');
-  window.localStorage('')
+  // window.localStorage('')
   addCityInput(inpCity);
   setTimeout(() => {
     document.querySelector('.nav').classList.remove('hiden');
