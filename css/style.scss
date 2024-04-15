@@ -18,24 +18,53 @@ body {
   padding: 15px;
 }
 
+button {
+  background-color: transparent;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+#add-city {
+  transition: all 0.3s ease-out;
+}
+
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  &__add-city {
+
+    &.active #add-city {
+      transform: rotate(45deg)
+    }
+  }
+
+
   &-city {
     font-weight: 600;
     transition: all 0.3s ease-out;
     position: relative;
-
     scale: 1;
+    margin: 0;
 
-    .hiden & {
+    &.hiden {
       scale: 0;
+      margin-top: -150%;
       position: absolute;
+    }
+
+    &__reset-btn {
+      &.active {
+        transition: all 0.3s ease-out;
+        transform: rotate(360deg);
+      }
     }
   }
 }
+
+
 
 .icon {
   cursor: pointer;
@@ -45,10 +74,12 @@ body {
 .inp-block {
   margin-top: -100%;
   position: absolute;
-  transition: all 0.5s ease-out;
   scale: 0;
+  transition: all 0.5s ease-out;
   width: 300px;
-  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 32px;
   border-radius: 20px;
   overflow: hidden;
