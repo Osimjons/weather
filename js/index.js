@@ -53,7 +53,7 @@ searchBtn.addEventListener('click', searchClickFunctions);
 
 
 /*Ввод по Enter */
-inputValue.addEventListener('keypress', (e) => {
+inputValue.addEventListener('keydown', (e) => {
   if (e.code === 'Enter') {
     searchClickFunctions();
   }
