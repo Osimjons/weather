@@ -38,8 +38,8 @@ addCityBtn.addEventListener('click', () => {
   addClassList(inputBlock, 'active');
 });
 
-/**По клику получаем значение из input и убираем лишние классы */
-searchBtn.addEventListener('click', () => {
+/*Функция получения значение из input и убираем лишние классы */
+const searchClickFunctions = () => {
   city = inputValue.value.trim();
   if (!city) return alert('Вы не ввели название города, попробуйте снова');
   addClassList(addCityBtn, 'active');
@@ -47,6 +47,16 @@ searchBtn.addEventListener('click', () => {
   addClassList(inputBlock, 'active');
   getInfo(city);
   inputValue.value = '';
+};
+/*По клику получаем значение из input и убираем лишние классы */
+searchBtn.addEventListener('click', searchClickFunctions);
+
+
+/*Ввод по Enter */
+inputValue.addEventListener('keypress', (e) => {
+  if (e.code === 'Enter') {
+    searchClickFunctions();
+  }
 });
 
 /**Обновить данные */
