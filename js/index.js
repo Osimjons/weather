@@ -54,7 +54,7 @@ searchBtn.addEventListener('click', searchClickFunctions);
 
 /*Ввод по Enter */
 inputValue.addEventListener('keydown', (e) => {
-  if (e.code === 'Enter') {
+  if (e.key === 'Enter') {
     searchClickFunctions();
   }
 });
